@@ -867,6 +867,10 @@ class Codebird
     // map function name to API method
     list($method, $method_template) = $this->_mapFnToApiMethod($function, $apiparams);
 
+    if ($method == 'statuses/user_timeline') {
+    	$method = 'statuses/user_timeline/';
+    }
+
     $httpmethod = $this->_detectMethod($method_template, $apiparams);
     $multipart  = $this->_detectMultipart($method_template);
 
